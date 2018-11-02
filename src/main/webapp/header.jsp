@@ -36,14 +36,14 @@
     <div id="u40">
         <img id="u40_img"src="/img/logo.png"/>
         <div id="u40_text" >
-            <p><span>logo</span></p>
+            <p><span></span></p>
         </div>
     </div>
     <!-- 店名 -->
     <div id="u41">
         <div id="u41_div"></div>
         <div id="u41_text">
-            <p><span>麦当劳(店名)</span></p>
+            <p><span>麦当劳(青岛科技大学青软国际软件学院店)</span></p>
         </div>
     </div>
     <!-- 索引菜单栏 -->

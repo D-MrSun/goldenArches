@@ -36,7 +36,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">数据分析</h1>
           <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder" style="width:1100px;height:350px;">
+            <div class="col-xs-6 col-sm-3 placeholder" style="width:1100px;height:350px;margin-bottom: 50px">
               <div id="pieChart" class="col-xs-6 col-sm-3 placeholder" style="width: 49%;height:350px;"></div>
               <div>
                 <form class="form-inline">
@@ -54,12 +54,10 @@
                 <div id="horizontalBar" class="col-xs-6 col-sm-3 placeholder" style="width: 51%;height:350px;"></div>
               </div>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
+            <div class="col-xs-6 col-sm-3 placeholder" style="width: 95%;">
               <h3>全年销售趋势 <small>数量和金额</small></h3>
             </div>
             <div id="barChart" class="col-xs-6 col-sm-3 placeholder" style="width: 95%;height:500px;"></div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-            </div>
             <div class="col-xs-6 col-sm-3 placeholder">
             </div>
           </div>
