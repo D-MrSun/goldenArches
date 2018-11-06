@@ -49,7 +49,7 @@
                     <th>手机号</th>
                     <th ><a class="btn" style="padding: 0px;font-weight: bold" onclick="balanceClick()">账户余额</a></th>
                     <th ><a class="btn" style="padding: 0px;font-weight: bold" onclick="createTimeClick()">创建时间</a></th>
-                    <th>修改余额</th>
+                    <th>操作</th>
                 </tr>
               </thead>
               
@@ -181,6 +181,7 @@
                             tableContent += '  <td>'+member.createTime+'</td>';
                             tableContent += '  <td>';
                             tableContent += '     <button type="button" onclick="goUpdatePage('+member.id+', \''+member.balance+'\')" class="btn btn-primary btn-xs"><i class=" glyphicon glyphicon-pencil"></i></button>';
+                            tableContent += '	  <button type="button" onclick="deleteMember('+member.id+', \''+member.name+'\')" class="btn btn-danger btn-xs"><i class=" glyphicon glyphicon-remove"></i></button>';
                             tableContent += '  </td>';
                             tableContent += '</tr>';
                         });
@@ -249,6 +250,39 @@
                 }
             });
         });
+
+        /**
+         * 删除会员
+         * @param id
+         * @param name
+         */
+       function deleteMember(id,name){
+            layer.confirm("删除会员【"+name+"】, 是否继续",  {icon: 3, title:'提示'}, function(cindex){
+                // 删除单个角色
+                $.ajax({
+                    type : "POST",
+                    url  : "${APP_PATH}/member/delete",
+                    data : "id="+id,
+                    success : function(result) {
+                        console.log(result);
+                        if (result.code!=null){
+                            if ( result.code==100 ) {
+                                layer.msg(result.extend.msg, {time:2000, icon:6}, function(){});
+                                pageQuery(1);
+                            } else {
+                                layer.msg(result.extend.msg, {time:2000, icon:5, shift:6}, function(){});
+                            }
+                        }else {
+                            layer.msg("权限不足", {time:2000, icon:5, shift:6}, function(){});
+                        }
+                    }
+                });
+                layer.close(cindex);
+
+            }, function(cindex){
+                layer.close(cindex);
+            });
+       }
     </script>
   </body>
 </html>

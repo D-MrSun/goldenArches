@@ -15,4 +15,6 @@ public interface MemberService {
     List<VIP> getAll(Map<String, String> map);
 
     void editMemberBalance(VIP vip);
+
+    boolean removeMember(Integer id);
 }

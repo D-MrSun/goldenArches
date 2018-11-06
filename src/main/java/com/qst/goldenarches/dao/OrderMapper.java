@@ -57,4 +57,6 @@ public interface OrderMapper {
 
     @Select("select product_id id,product_name name,product_price price,product_inventory inventory,product_status status,category_id cid from product_info where product_id = #{pid}")
     public Product selAllByPid(int pid);
+
+    int countBuyerById(Integer id);
 }

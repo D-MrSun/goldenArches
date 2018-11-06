@@ -11,12 +11,14 @@ import com.qst.goldenarches.pojo.Msg;
 import com.qst.goldenarches.pojo.Product;
 import com.qst.goldenarches.pojo.VIP;
 import com.qst.goldenarches.service.MemberService;
+import com.qst.goldenarches.utils.ImageUtil;
 import com.qst.goldenarches.utils.OrderByEnumUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +30,23 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
+    /**
+     * 会员后台：单个删除
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("delete")
+    public Msg deleteOne(Integer id){
+        try {
+           if (memberService.removeMember(id)){
+               return Msg.success();
+           }else {
+               return Msg.fail().add("msg","存在订单,删除失败");
+           }
+        }catch (Exception e){
+            return Msg.fail().add("msg","会员删除失败");
+        }
+    }
     @ResponseBody
     @RequestMapping("doEdit")
     public Msg doEdit(VIP vip){

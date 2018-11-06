@@ -64,4 +64,8 @@
         AND order_id IN (SELECT order_id FROM order_master
                       WHERE create_time LIKE CONCAT(#{curDate},'%'))
     </select>
+    <select id="countBuyerById" resultType="java.lang.Integer">
+        SELECT IFNULL(COUNT(buyer_id),0)  FROM order_master
+        WHERE buyer_id =#{0}
+    </select>
 </mapper>

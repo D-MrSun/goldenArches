@@ -7,6 +7,7 @@
 package com.qst.goldenarches.dao;
 
 import com.qst.goldenarches.pojo.VIP;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
@@ -18,4 +19,7 @@ public interface MemberMapper {
 
     @Update("UPDATE vip_info SET vip_balance =#{balance}  WHERE vip_id =#{id}")
     void updateMemberBalance(VIP vip);
+
+    @Delete("DELETE FROM vip_info WHERE vip_id =#{0}")
+    void deleteById(Integer id);
 }
