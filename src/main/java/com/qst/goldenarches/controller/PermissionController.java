@@ -54,6 +54,7 @@ public class PermissionController {
         }
         for ( Permission p : ps ) {
             Permission child = p;
+            child.setUrl(null);
             if ( child.getPid() == 0 ) {
                 permissions.add(p);
             } else {
